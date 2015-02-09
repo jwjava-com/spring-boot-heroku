@@ -15,15 +15,9 @@ package com.rgm.app;
  * limitations under the License.
  */
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import com.rgm.app.controller.IndexController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -34,6 +28,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 /**
  * @author rmills
  */
@@ -41,13 +38,10 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = Application.class)
-public class IndexControllerTest {
+public class ViewsTest {
 
 	@Autowired
 	WebApplicationContext context;
-
-	@InjectMocks
-	IndexController controller;
 
 	private MockMvc mvc;
 
@@ -64,7 +58,7 @@ public class IndexControllerTest {
 		mvc.perform(get("/")
 				.accept(MediaType.TEXT_PLAIN))
 				.andExpect(status().isOk())
-				.andExpect(content().string("Hello World!"));
+				/*.andExpect(content().string("Hello World!"))*/;
 		// @formatter:on
 	}
 
